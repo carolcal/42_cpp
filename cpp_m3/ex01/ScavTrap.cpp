@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:59:19 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/19 16:01:28 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/19 18:27:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ScavTrap::~ScavTrap(void)
 /* *************************** Assignment operator ************************** */
 ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 {
-    std::cout << "Assignment operator called" << std::endl;
+    std::cout << "ScavTrap Assignment operator called" << std::endl;
     if (this != &other)
     {
         ClapTrap::operator=(other);
@@ -52,6 +52,26 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 }
 
 /* **************************** Method Functions *************************** */
+void	ScavTrap::attack(const std::string& target)
+{
+	if (getHitPoints() <= 0)
+	{
+		std::cout << "ScavTrap " << getName() << 
+			" is dead!" << std::endl;
+		return ;
+	}
+	if (getEnergyPoints() <= 0)
+	{
+		std::cout << "ScavTrap " << getName() << 
+			" has no energy to attack!" << std::endl;
+		return ;
+	}
+	setEnergyPoints(getEnergyPoints() - 1);
+    std::cout << "ScavTrap " << getName() << " attacks " << target 
+		<< ", causing " << getAttackDamage() << " points of damage and now has "
+		<< getEnergyPoints() << " energy points!" << std::endl;
+}
+
 void ScavTrap::guardGate(void)
 {
     std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode!" << std::endl;
