@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:59:19 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/20 11:24:24 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/20 16:00:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap(void): ClapTrap()
     _hitPoints = 100;
     _energyPoints = 50;
     _attackDamage = 20;
-    std::cout << "Anonimus ScavTrap created!" << std::endl;
+    std::cout << _name << " ScavTrap created!" << std::endl;
 };
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)

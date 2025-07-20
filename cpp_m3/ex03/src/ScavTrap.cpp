@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:59:19 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/20 16:00:49 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/20 15:57:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other)
     return *this;
 }
 
-/* **************************** Method Functions *************************** */
+/* **************************** Method Functions **************************** */
 void	ScavTrap::attack(const std::string& target)
 {
 	if (_hitPoints <= 0)

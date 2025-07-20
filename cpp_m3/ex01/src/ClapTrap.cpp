@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 13:33:16 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/20 11:38:28 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/20 16:01:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* *********************** Constructors and Destructor ********************** */
 ClapTrap::ClapTrap(void) : _name("Anonimus"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "Anonimus ClapTrap created!" << std::endl;
+    std::cout << _name << " ClapTrap created!" << std::endl;
 };
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
