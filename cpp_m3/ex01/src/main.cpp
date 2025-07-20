@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:28:24 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/19 16:07:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/20 12:06:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,20 @@ int main(void)
     ScavTrap vilain("Vilain");
     ScavTrap hero(anonimus);
 
-    std::cout << PINK << "* Set Name *" << RESET << std::endl;
+    std::cout << PINK << "* Assign Values *" << RESET << std::endl;
     hero.setName("Hero");
+    hero.setHitPoints(19);
+    hero.setEnergyPoints(2);
+    hero.setAttackDamage(11);
     
     std::cout << PINK << "* Attack!!! *" << RESET << std::endl;
     vilain.attack("Hero");
-    vilain.attack("Hero");
-    vilain.attack("Hero");
-    vilain.attack("Hero");
-    hero.takeDamage(4 * vilain.getAttackDamage());
-    hero.beRepaired(10);
+    hero.takeDamage(vilain.getAttackDamage());
+    hero.beRepaired(3);
     hero.attack("Vilain");
     vilain.takeDamage(hero.getAttackDamage());
     vilain.attack("Hero");
-    vilain.attack("Hero");
-    hero.takeDamage(2 * vilain.getAttackDamage());
+    hero.takeDamage(vilain.getAttackDamage());
     hero.attack("Vilain");
     vilain.guardGate();
 

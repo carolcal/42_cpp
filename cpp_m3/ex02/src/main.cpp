@@ -3,36 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:28:24 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/18 16:50:17 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/20 12:29:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
     std::cout << PINK << "* Constructors *" << RESET << std::endl;
-    ClapTrap anonimus;
-    ClapTrap vilain("Vilain");
-    ClapTrap hero(anonimus);
+    FragTrap anonimus;
+    ScavTrap vilain("Vilain");
+    FragTrap hero(anonimus);
 
-    std::cout << PINK << "* Set Name *" << RESET << std::endl;
+    std::cout << PINK << "* Assign Values *" << RESET << std::endl;
     hero.setName("Hero");
+    hero.setHitPoints(19);
+    hero.setEnergyPoints(2);
+    hero.setAttackDamage(11);
     
     std::cout << PINK << "* Attack!!! *" << RESET << std::endl;
     vilain.attack("Hero");
-    hero.takeDamage(7);
-    hero.attack("Vilain");
-    vilain.takeDamage(5);
+    hero.takeDamage(vilain.getAttackDamage());
+    hero.beRepaired(3);
+    hero.highFivesGuys();
     vilain.attack("Hero");
-    hero.takeDamage(5);
-    hero.beRapaired(3);
+    hero.takeDamage(vilain.getAttackDamage());
     hero.attack("Vilain");
-    vilain.takeDamage(6);
-    vilain.attack("Hero");
+    vilain.guardGate();
 
      std::cout << PINK << "* Destructors *" << RESET << std::endl;
     return (0);

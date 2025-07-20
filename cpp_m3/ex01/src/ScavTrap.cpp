@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:59:19 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/19 18:27:02 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/20 11:24:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,29 @@
 /* *********************** Constructors and Destructor ********************** */
 ScavTrap::ScavTrap(void): ClapTrap()
 {
-    setHitPoints(100);
-    setEnergyPoints(50);
-    setAttackDamage(20);
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
     std::cout << "Anonimus ScavTrap created!" << std::endl;
 };
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    setHitPoints(100);
-    setEnergyPoints(50);
-    setAttackDamage(20);
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
     std::cout << name << " ScavTrap created!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
     *this = other;
-    std::cout << "Copied " << getName() << " ScavTrap!" << std::endl;
+    std::cout << "Copied " << _name << " ScavTrap!" << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-    std::cout << "ScavTrap " << getName() << " destroyed!" << std::endl;
+    std::cout << "ScavTrap " << _name << " destroyed!" << std::endl;
 }
 
 /* *************************** Assignment operator ************************** */
@@ -54,25 +54,37 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other)
 /* **************************** Method Functions *************************** */
 void	ScavTrap::attack(const std::string& target)
 {
-	if (getHitPoints() <= 0)
+	if (_hitPoints <= 0)
 	{
-		std::cout << "ScavTrap " << getName() << 
+		std::cout << "ScavTrap " << _name << 
 			" is dead!" << std::endl;
 		return ;
 	}
-	if (getEnergyPoints() <= 0)
+	if (_energyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << getName() << 
+		std::cout << "ScavTrap " << _name << 
 			" has no energy to attack!" << std::endl;
 		return ;
 	}
-	setEnergyPoints(getEnergyPoints() - 1);
-    std::cout << "ScavTrap " << getName() << " attacks " << target 
-		<< ", causing " << getAttackDamage() << " points of damage and now has "
-		<< getEnergyPoints() << " energy points!" << std::endl;
+	_energyPoints--;
+    std::cout << "ScavTrap " << _name << " attacks " << target 
+		<< ", causing " << _attackDamage << " points of damage and now has "
+		<< _energyPoints << " energy points!" << std::endl;
 }
 
 void ScavTrap::guardGate(void)
 {
-    std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode!" << std::endl;
+    if (_hitPoints <= 0)
+	{
+		std::cout << "ScavTrap " << _name << 
+			" is dead!" << std::endl;
+		return ;
+	}
+	if (_energyPoints <= 0)
+	{
+		std::cout << "ScavTrap " << _name << 
+			" has no energy to guard gate!" << std::endl;
+		return ;
+	}
+    std::cout << "ScavTrap " << _name << " is now in Gate keeper mode!" << std::endl;
 }

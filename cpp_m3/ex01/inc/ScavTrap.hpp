@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:59:29 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/19 18:22:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/20 12:14:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@
 class ScavTrap: public ClapTrap
 {
     public:
-        ScavTrap(void);
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap &other);
-        ~ScavTrap(void);
+		/* ***** Constructors and Destructor **** */
+		ScavTrap(void);
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap &other);
+		~ScavTrap(void);
 
-        ScavTrap& operator=(const ScavTrap &other);
-    
-        void	attack(const std::string& target);
-        void	guardGate(void);
+		/* ******** Assignment operator ********* */
+		ScavTrap& operator=(const ScavTrap &other);
+
+		/* ********** Method Functins *********** */
+		void	attack(const std::string& target);
+		void	guardGate(void);
 };
 
 #endif

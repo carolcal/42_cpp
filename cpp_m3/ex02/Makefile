@@ -6,12 +6,12 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 16:53:49 by cayamash          #+#    #+#              #
-#    Updated: 2025/07/20 12:01:33 by marvin           ###   ########.fr        #
+#    Updated: 2025/07/20 12:30:38 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #================== NAME ==================#
-NAME = ClapTrap
+NAME = FragTrap
 
 #=========== COMPILERS AND FLAGS ===========#
 CC = c++
@@ -21,7 +21,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 INCLUDES = -I inc
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp ClapTrap.cpp
+SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 SRC  =$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 
