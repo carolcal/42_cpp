@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 13:14:33 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/20 12:03:47 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/21 14:15:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <iostream>
 # include <string>
 
-#define RESET	"\033[0m"
-#define PINK	"\033[35m"
+# define RESET	"\033[0m"
+# define PINK	"\033[35m"
 
 class ClapTrap
 {
