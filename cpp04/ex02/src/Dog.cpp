@@ -32,7 +32,7 @@ Dog::~Dog(void)
 };
 
 /* *************************** Assignment operator ************************** */
-Dog& Dog::operator=(const Dog&other)
+Dog& Dog::operator=(const Dog &other)
 {
 	std::cout << "Dog assignment operator called" << std::endl;
 	if (this != &other)

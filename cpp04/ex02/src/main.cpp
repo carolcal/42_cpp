@@ -19,7 +19,6 @@ void	testing_classes_objects(void)
 	std::cout << PINK << "\n* TESTING DERIVED CLASSES AS OBJECTS *" << RESET << std::endl;
 	std::cout << PINK << "\n* Constructors *" << RESET << std::endl;
 	// Animal animal;
-	// Animal bear("Bear");
 	Dog dog;
 	Cat cat;
 
@@ -42,7 +41,6 @@ void	testing_classes_objects(void)
 // 	const Animal animal = Animal();
 // 	const Animal dog = Dog();
 // 	const Animal cat = Cat();
-
 // 	std::cout << PINK << "\n* Destructors *" << RESET << std::endl;
 // };
 
@@ -50,7 +48,7 @@ void	testing_classes_pointers(void)
 {
 	std::cout << PINK << "\n* TESTING DERIVED CLASSES AS BASE CLASS POINTERS *" << RESET << std::endl;
 	std::cout << PINK << "\n* Constructors *" << RESET << std::endl;
-	//const Animal* animal = new Animal();
+	// const Animal* animal = new Animal();
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
 
@@ -65,7 +63,7 @@ void	testing_classes_pointers(void)
 	cat->makeSound();
 
 	std::cout << PINK << "\n* Destructors *" << RESET << std::endl;
-	//delete animal;
+	// delete animal;
 	delete dog;
 	delete cat;
 };
@@ -148,9 +146,9 @@ int main(void)
 {
 	testing_classes_objects();
 
-	//std::cout << PINK << "\n------------------------------------------------------" << RESET << std::endl;
+	// std::cout << PINK << "\n------------------------------------------------------" << RESET << std::endl;
 	
-	//testing_classes_base_objects();
+	// testing_classes_base_objects();
 	
 	std::cout << PINK << "\n------------------------------------------------------" << RESET << std::endl;
 	
