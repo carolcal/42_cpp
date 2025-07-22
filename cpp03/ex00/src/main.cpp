@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:28:24 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/20 16:00:06 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/22 17:51:43 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(void)
     std::cout << PINK << "\n* Fight!!! *" << RESET << std::endl;
     hero.attack("Vilain");
     vilain.takeDamage(11);
-    vilain.beRapaired(3);
+    vilain.beRepaired(3);
     vilain.attack("Hero");
     hero.takeDamage(0);
     hero.attack("Vilain");

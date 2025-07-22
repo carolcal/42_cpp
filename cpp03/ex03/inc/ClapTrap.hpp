@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 13:14:33 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/21 14:15:58 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/22 17:53:35 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 class ClapTrap
 {
 	protected:
-		std::string _name;
-		int         _hitPoints;
-		int         _energyPoints;
-		int         _attackDamage;
+		std::string		_name;
+		unsigned int	_hitPoints;
+		unsigned int	_energyPoints;
+		unsigned int	_attackDamage;
 
 	public:
 		/* ***** Constructors and Destructor **** */
