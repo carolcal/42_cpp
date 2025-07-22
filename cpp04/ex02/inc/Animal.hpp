@@ -24,7 +24,7 @@ class Animal
     protected:
         std::string _type;
 
-    protected:
+    public:
         /* ***** Constructors and Destructor **** */
         Animal(void);
         Animal(std::string type);
@@ -36,7 +36,7 @@ class Animal
 
         /* ********** Method Functins *********** */
         std::string		getType(void) const;
-		virtual void	makeSound(void) const;
+		virtual void	makeSound(void) const = 0;
 };
 
 #endif

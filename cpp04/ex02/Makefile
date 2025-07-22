@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 16:53:49 by cayamash          #+#    #+#              #
-#    Updated: 2025/07/21 17:02:18 by marvin           ###   ########.fr        #
+#    Updated: 2025/07/22 10:15:25 by cayamash         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #================== NAME ==================#
-NAME = Brain
+NAME = Abstract
 
 #=========== COMPILERS AND FLAGS ===========#
 CC = c++
