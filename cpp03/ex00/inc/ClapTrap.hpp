@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 13:14:33 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/20 11:43:54 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/22 17:44:56 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class ClapTrap
 		/* ********** Method Functins *********** */
 		void		attack(const std::string& target);
 		void		takeDamage(unsigned int amount);
-		void		beRapaired(unsigned int amount);
+		void		beRepaired(unsigned int amount);
 
 		/* ************* Getters *************** */
 		std::string getName(void);

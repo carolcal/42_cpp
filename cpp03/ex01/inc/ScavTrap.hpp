@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 16:59:29 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/20 12:14:28 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/22 15:30:51 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
-#define SACVTRAP_HPP
+#define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
 
