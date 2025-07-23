@@ -38,7 +38,7 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat(void);
 
-		/* ******** Assignment Operator ********* */
+		/* ************* Operators ************** */
 		Bureaucrat& operator=(const Bureaucrat &other);
 
 		/* ********** Member Functins *********** */

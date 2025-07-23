@@ -1,84 +1,97 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 10:35:31 by marvin            #+#    #+#             */
-/*   Updated: 2025/07/23 10:35:31 by marvin           ###   ########.fr       */
+/*   Created: 2025/07/23 17:27:12 by marvin            #+#    #+#             */
+/*   Updated: 2025/07/23 17:27:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 # include "iostream"
 # include "string"
 
-# define RESET	"\033[0m"
-# define PINK	"\033[35m"
+# include "Bureaucrat.hpp"
 
-# include "Form.hpp"
+class Bureaucrat;
 
-class Form;
-
-class Bureaucrat
+class AForm
 {
 	private:
-		const std::string	_name;
-		int					_grade;
+		const std::string   _name;
+		bool                _signed;
+		const int			_gradeSign;
+		const int			_gradeExec;
 		static const int	_gradeMin = 1;
 		static const int	_gradeMax = 150;
 
 	public:
 		/* ***** Constructors and Destructor **** */
-		Bureaucrat(void);
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(const Bureaucrat &other);
-		~Bureaucrat(void);
+		AForm(void);
+		AForm(std::string name, int gradeSign, int gradeExec);
+		AForm(const AForm &other);
+		~AForm(void);
 
 		/* ******** Assignment Operator ********* */
-		Bureaucrat& operator=(const Bureaucrat &other);
+		Form& operator=(const Form &other);
 
 		/* ********** Member Functins *********** */
-		void		incrementGrade(int amount);
-		void		decrementGrade(int amount);
-        void        signForm(Form &f);
+		void		beSigned(Bureaucrat &b);
 
 		/* ************* Getters *************** */
 		std::string	getName(void) const;
-		int			getGrade(void) const;
-
+		bool		getSigned(void) const;
+		int			getGradeSign(void) const;
+		int			getGradeExec(void) const;
+	
 		/* ************* Exceptions ************ */
 		class GradeTooHighException : public std::exception
 		{
+			private:
+				std::string _msg;
 			public:
+				GradeTooHighException(void)
+				{
+					_msg = "Grade is too hight!";
+				}
+				GradeTooHighException(const std::string &type)
+				{
+					_msg = type + " is too hight!";
+				};
+				virtual ~GradeTooHighException(void) throw() {};
 				virtual const char* what() const throw()
 				{
-					return "Grade is too hight! Please enter a smaller value to increment.";
+					return _msg.c_str();
 				}
 
 		};
 		class GradeTooLowException : public std::exception
 		{
+			private:
+				std::string _msg;
 			public:
+				GradeTooLowException(void)
+				{
+					_msg = "Grade is too low!";
+				};
+				GradeTooLowException(const std::string &type)
+				{
+					_msg = type + " is too low!";
+				};
+				virtual ~GradeTooLowException(void) throw() {};
 				virtual const char* what() const throw()
 				{
-					return "Grade is too low! Please enter a smaller value to decrement.";
-				}
-		};
-		class NegativeNumber : public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return "Negative value! Please enter a positive value.";
+					return _msg.c_str();
 				}
 		};
 };
 
 /* **************** Overload operator *************** */
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
+std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif
