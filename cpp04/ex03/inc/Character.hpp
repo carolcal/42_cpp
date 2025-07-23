@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:13:22 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/22 18:05:20 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:49:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define CHARACTER_HPP
 
 # include "AMateria.hpp"
+
+# define RESET	"\033[0m"
+# define PINK	"\033[35m"
 
 class Character : public ICharacter
 {
@@ -24,8 +27,10 @@ class Character : public ICharacter
 		static const int	_floorSize = 42;
 		AMateria*			_floor[_floorSize];
 
+        /* ********** Method Functins *********** */
 		bool	dropFloor(AMateria* m);
 		void	initArrays(void);
+
 	public:
 		/* ***** Constructors and Destructor **** */
 		Character(void);

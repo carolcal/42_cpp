@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:22:50 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/22 11:28:08 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/23 08:01:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AMateria
 	AMateria(void);
 	AMateria(std::string const & type);
 	AMateria(const AMateria &other);
-	~AMateria(void);
+	virtual ~AMateria(void);
 
 	/* ******** Assignment operator ********* */
 	AMateria& operator=(const AMateria &other);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:37:10 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/22 18:10:13 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/23 07:59:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class MateriaSource : public IMateriaSource
         static const int    _sourceSize = 4;
         AMateria*           _source[_sourceSize];
 
-        void	MateriaSource::initArray(void);
+        void	initArray(void);
     
     public:
 		/* ***** Constructors and Destructor **** */

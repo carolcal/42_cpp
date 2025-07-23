@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:31:00 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/22 18:23:27 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/23 07:58:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-# include "AMateria.hpp"
+class AMateria; //Forward declaration
 
 class ICharacter
 {

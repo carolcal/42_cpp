@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 11:09:38 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/22 14:24:39 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:52:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 /* *********************** Constructors and Destructor ********************** */
 Ice::Ice(void) : AMateria("ice") {};
 
-Ice::Ice(const Ice &other) : AMateria(other)
-{
-	*this = other;
-};
+Ice::Ice(const Ice &other) : AMateria(other) { *this = other; };
 
 Ice::~Ice(void) {};
 
@@ -30,10 +27,7 @@ Ice& Ice::operator=(const Ice &other)
 }
 
 /* **************************** Method Functions *************************** */
-AMateria*	Ice::clone() const
-{
-	return new Ice(*this);
-}
+AMateria*	Ice::clone() const { return new Ice(*this); };
 
 void		Ice::use(ICharacter &target)
 {

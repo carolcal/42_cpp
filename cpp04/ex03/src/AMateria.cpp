@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:49:39 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/22 11:29:04 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/23 09:51:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ AMateria::AMateria(void) : _type("None") {};
 
 AMateria::AMateria(std::string const &type) : _type(type) {};
 
-AMateria::AMateria(const AMateria &other)
-{
-    *this = other;
-}
+AMateria::AMateria(const AMateria &other) : _type(other._type) {};
 
 AMateria::~AMateria(void) {};
 
@@ -32,13 +29,10 @@ AMateria& AMateria::operator=(const AMateria &other)
 };
 
 /* **************************** Method Functions *************************** */
-std::string const& AMateria::getType() const
-{
-    return _type;
-}
+std::string const& AMateria::getType() const { return _type; };
 
 void    AMateria::use(ICharacter& target)
 {
     std::cout << "Uses " << _type << " Materia in target " 
         << target.getName() << std::endl;
-}
+};
