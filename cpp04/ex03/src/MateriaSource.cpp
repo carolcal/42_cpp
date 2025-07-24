@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:39:44 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/23 09:31:12 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/24 09:43:27 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void		MateriaSource::learnMateria(AMateria* m)
 			return ;
 		}
 	}
+	delete m;
 	std::cout << "Source is full, cannot learn new materia!" << std::endl;
 };
 

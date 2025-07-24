@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:23:04 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/23 09:42:22 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/24 09:42:56 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,10 @@ void    Character::equip(AMateria *m)
 			break ;
 		}
 		if (i == _inventorySize - 1)
+		{
 			std::cout << "Inventory is full!" << std::endl;
+			delete m;
+		}
 	}
 }
 

@@ -70,6 +70,8 @@ void	testing_classes_pointers(void)
 
 void	testing_array_brain(void)
 {
+	std::cout << PINK << "\n* TESTING BRAIN IN ARRAY *" << RESET << std::endl;
+
 	std::cout << PINK << "\n* Constructors *" << RESET << std::endl;
 	const int size = 6;
 	Animal *animal[size];

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 18:13:17 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/23 09:48:00 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/24 09:38:33 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void testCharacter(void)
 	std::cout << PINK << "\n* Copy Constructor (should copy inventory) *" << RESET << std::endl;
 	Character copy(*me);
 	copy.equip(new Ice());
-	copy.use(0, *bob); // deve funcionar
+	copy.use(0, *bob);
 
 	std::cout << PINK << "\n* Assignment Operator (should not copy inventory) *" << RESET << std::endl;
 	Character assign;
