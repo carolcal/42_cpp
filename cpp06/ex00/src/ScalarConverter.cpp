@@ -22,42 +22,34 @@ ScalarConverter::~ScalarConverter(void) {};
 /* *************************** Assignment Operator ************************** */
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other)
 {
-    (void)other;
-    return *this;
+	(void)other;
+	return *this;
 };
 
 /* ***************************** Member Functions *************************** */
 void    ScalarConverter::converter(std::string s)
 {
-    //bool isConvertable = true;
+	bool isConvertable = true;
 
-    if (isChar(s))
-    {
-        std::cout << "Input is type <char>." << std::endl;
-    }
-    else if (isInt(s))
-    {
-        std::cout << "Input is type <int>." << std::endl;
-    }
-    else if (isFloat(s))
-    {
-        std::cout << "Input is type <float>." << std::endl;
-    }
-    else if(isDouble(s))
-    {
-        std::cout << "Input is type <double>." << std::endl;
-    }
-    else
-    {
-        std::cout << "Input is not convertable." << std::endl;
-     //   isConvertable = false; 
-    }
+	if (isChar(s))
+		std::cout << "Input is type <char>" << std::endl;
+	else if (isInt(s))
+		std::cout << "Input is type <int>" << std::endl;
+	else if (isFloat(s))
+		std::cout << "Input is type <float>" << std::endl;
+	else if(isDouble(s))
+		std::cout << "Input is type <double>" << std::endl;
+	else
+	{
+		std::cout << "Input is not convertable" << std::endl;
+		isConvertable = false; 
+	}
 
-    /* if (isConvertible)
-    {
-        castChar(s);
-        castInt(s);
-        castFloat(s);
-        castDouble(s);
-    } */
+	if (isConvertable)
+	{
+		castChar(s);
+		castInt(s);
+		castFloat(s);
+		castDouble(s);
+	}
 };

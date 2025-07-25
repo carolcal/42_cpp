@@ -17,13 +17,24 @@
 # include <iostream>
 # include <cctype>
 # include <string>
+# include <algorithm>
 
-bool    isChar(const std::string input);
+std::string skipSpaces(const std::string &s);
 
-bool    isInt(const std::string input);
+bool		isChar(const std::string input);
 
-bool    isFloat(const std::string input);
+bool		isInt(const std::string input);
 
-bool    isDouble(const std::string input);
+bool		isFloat(const std::string input);
+
+bool		isDouble(const std::string input);
+
+bool		isInf(const std::string s);
+
+bool		isInff(const std::string s);
+
+bool		isNan(const std::string s);
+
+bool		isNanf(const std::string s);
 
 #endif

@@ -12,16 +12,18 @@
 
 #include "TypeIdentifier.hpp"
 
-std::string skipSpaces(const std::string& s) {
+std::string skipSpaces(const std::string &s)
+{
     size_t i = 0;
     while (i < s.size() && isspace(s[i]))
         i++;
     return s.substr(i);
-}
+};
 
 bool    isChar(const std::string s)
 {
-	return (s.length() == 1 && isprint(s[0]) && !isdigit(s[0]));
+	std::string s_trim = skipSpaces(s);
+	return (s_trim.length() == 1 && isprint(s_trim[0]) && !isdigit(s_trim[0]));
 };
 
 bool    isInt(const std::string s)
@@ -36,7 +38,7 @@ bool    isFloat(const std::string s)
 {
 	std::string s_trim = skipSpaces(s);
 
-	if (s_trim == "-inff" || s_trim == "+inff" || s_trim == "inff" || s_trim == "nanf")
+	if (isInff(s) || isNanf(s))
 		return true;
 	if (s_trim.size() < 2 || s_trim[s_trim.size() - 1] != 'f')
 		return false;
@@ -51,7 +53,7 @@ bool    isFloat(const std::string s)
 
 bool    isDouble(const std::string s)
 {
-	if (s == "-inf" || s == "+inf" || s == "inf" || s == "nan")
+	if (isInf(s) || isNan(s))
 		return true;
 
 	double				d;
@@ -59,3 +61,27 @@ bool    isDouble(const std::string s)
 
 	return (iss >> d) && iss.eof();
 };
+
+bool	isInf(const std::string s)
+{
+	skipSpaces(s);
+	return (s == "-inf" || s == "+inf" || s == "inf");
+}
+
+bool	isInff(const std::string s)
+{
+	skipSpaces(s);
+	return (s == "-inff" || s == "+inff" || s == "inff");
+}
+
+bool	isNan(const std::string s)
+{
+	skipSpaces(s);
+	return (s == "nan");
+}
+
+bool	isNanf(const std::string s)
+{
+	skipSpaces(s);
+	return (s == "nanf");
+}

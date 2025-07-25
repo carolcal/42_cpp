@@ -86,7 +86,7 @@ int			AForm::getGradeExec(void) const { return _gradeExec; };
 /* **************************** Overload Operator *************************** */
 std::ostream& operator<<(std::ostream& os, const AForm &f)
 {
-	os << "AForm '" << f.getName() << (f.getSigned() ? "' is" : "' is not") 
+	os << "Form '" << f.getName() << (f.getSigned() ? "' is" : "' is not") 
 		<< " signed. This form requires bureacrate level " << f.getGradeSign() 
 		<< " or higher to sign it and bureaucrat level " 
 		<< f.getGradeExec() << " or higher to execute it.";

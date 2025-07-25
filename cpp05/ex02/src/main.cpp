@@ -66,15 +66,3 @@ int main(void)
 	delete f1;
 	delete f2;
 }
-
-// int main(void)
-// {
-// 	ShrubberyCreationForm shrubbery("Monkey");
-// 	RobotomyRequestForm robotomy("Barney");
-// 	PresidentialPardonForm president("Alien");
-
-// 	shrubbery.beExecuted();
-// 	robotomy.beExecuted();
-// 	president.beExecuted();
-
-// }

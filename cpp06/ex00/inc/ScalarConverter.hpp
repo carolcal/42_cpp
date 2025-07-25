@@ -19,17 +19,15 @@
 class ScalarConverter
 {
 	private:
-		/* ************ Constructors ************ */
+		/* ***** Constructors and Destructor **** */
 		ScalarConverter(void);
 		ScalarConverter(const ScalarConverter &other);
+		~ScalarConverter(void);
 		
 		/* ************* Operators ************** */
 		ScalarConverter& operator=(const ScalarConverter &other);
 		
 	public:
-		/* ************* Destructor ************* */
-		~ScalarConverter(void);
-
 		/* ********** Member Functins *********** */
 		static void	converter(std::string str);
 };

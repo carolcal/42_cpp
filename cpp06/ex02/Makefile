@@ -6,12 +6,12 @@
 #    By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 16:53:49 by cayamash          #+#    #+#              #
-#    Updated: 2025/07/25 13:57:08 by cayamash         ###   ########.fr        #
+#    Updated: 2025/07/25 17:17:58 by cayamash         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #================== NAME ==================#
-NAME = Converter
+NAME = Type
 
 #=========== COMPILERS AND FLAGS ===========#
 CC = c++
@@ -21,7 +21,7 @@ FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 INCLUDES = -I inc
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp ScalarConverter.cpp TypeIdentifier.cpp Cast.cpp
+SRC_FILES = main.cpp Functions.cpp
 SRC  =$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 

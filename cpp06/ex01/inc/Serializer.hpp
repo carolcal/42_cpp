@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 17:04:45 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/25 10:03:10 by cayamash         ###   ########.fr       */
+/*   Created: 2025/07/25 14:04:05 by cayamash          #+#    #+#             */
+/*   Updated: 2025/07/25 16:43:27 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-#define INTERN_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
-# include "ShrubberyCreationForm.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "PresidentialPardonForm.hpp"
+# include <stdint.h>
 
-class Intern
+# include "Data.hpp"
+
+class Serializer
 {
-	public:
+	private:
 		/* ***** Constructors and Destructor **** */
-		Intern(void);
-		Intern(const Intern &other);
-		~Intern(void);
+		Serializer(void);
+		Serializer(const Serializer &other);
+		~Serializer(void);
 
 		/* ************* Operators ************** */
-		Intern& operator=(const Intern &other);
+		Serializer& operator=(const Serializer &other);
 
+	public:
 		/* ********** Member Functins *********** */
-		AForm*	makeForm(std::string name, std::string target);
+		static uintptr_t	serialize(Data* ptr);
+		static Data			*deserialize(uintptr_t raw);
 };
 
 #endif
