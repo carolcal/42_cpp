@@ -13,7 +13,13 @@
 #include "PresidentialPardonForm.hpp"
 
 /* *********************** Constructors and Destructor ********************** */
-PresidentialPardonForm::PresidentialPardonForm(void) {};
+PresidentialPardonForm::PresidentialPardonForm(void) : 
+    AForm("Presidential", "Anonimus", 25, 5)
+{};
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string target) :
+    AForm("Presidential", target, 25, 5)
+{};
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) 
 { 
@@ -25,5 +31,12 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {};
 /* *************************** Assignment Operator ************************** */
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
+    (void) other;
     return *this;
 };
+
+/* ***************************** Member Functions *************************** */
+void    PresidentialPardonForm::beExecuted(void) const
+{
+    std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+}

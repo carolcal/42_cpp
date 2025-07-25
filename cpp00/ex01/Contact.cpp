@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 14:35:37 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/15 11:24:55 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/24 15:31:26 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ std::string	getValidField(const std::string& prompt, const std::string& type)
 		}
 		if (field.empty())
 			std::cout << "You didn't wrote anything... try again!\n";
-		if (!isValid(field, type))
+		else if (!isValid(field, type))
 			std::cout << "Not a valid field, please enter " << type << " caracters... try again!\n";
 		else
 			break ;

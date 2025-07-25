@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,18 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /* *********************** Constructors and Destructor ********************** */
-Form::Form(void) : 
-	_name("Nameless"), 
-	_signed(false), 
+AForm::AForm(void) : 
+	_name("Nameless"),
+	_target("Anonimus"),
+	_signed(false),
 	_gradeSign(20),
 	_gradeExec(20)
 {};
 
-Form::Form(std::string name, int gradeSign, int gradeExec) :
-	_name(name), 
+AForm::AForm(std::string name, std::string target, int gradeSign, int gradeExec) :
+	_name(name),
+	_target(target),
 	_signed(false),
 	_gradeSign(gradeSign),
 	_gradeExec(gradeExec)
@@ -36,43 +38,55 @@ Form::Form(std::string name, int gradeSign, int gradeExec) :
 		throw GradeTooLowException("Execution Grade");
 };
 
-Form::Form(const Form &other) : 
+AForm::AForm(const AForm &other) : 
 	_name(other._name),
+	_target(other._target),
 	_signed(other._signed),
 	_gradeSign(other._gradeSign),
 	_gradeExec(other._gradeExec)
 {};
 
-Form::~Form(void) {};
+AForm::~AForm(void) {};
 
 /* *************************** Assignment Operator ************************** */
-Form& Form::operator=(const Form &other)
+AForm& AForm::operator=(const AForm &other)
 {
 	(void)other;
 	return *this;
 };
 
 /* ***************************** Member Functions *************************** */
-void		Form::beSigned(Bureaucrat &b)
+void		AForm::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() > _gradeSign)
 		throw GradeTooLowException("Bureaucrat's grade");
 	_signed = true;
 }
 
+void		AForm::execute(Bureaucrat const &b) const
+{
+	if (!_signed)
+		throw FormNotSigned();
+	if (b.getGrade() > _gradeExec)
+		throw GradeTooLowException("Bureaucrat's grade");
+	beExecuted();
+};
+
 /* ********************************* Getters ******************************** */
-std::string	Form::getName(void) const { return _name; };
+std::string	AForm::getName(void) const { return _name; };
 
-bool		Form::getSigned(void) const { return _signed; };
+std::string	AForm::getTarget(void) const { return _target; };
 
-int			Form::getGradeSign(void) const { return _gradeSign; };
+bool		AForm::getSigned(void) const { return _signed; };
 
-int			Form::getGradeExec(void) const { return _gradeExec; };
+int			AForm::getGradeSign(void) const { return _gradeSign; };
+
+int			AForm::getGradeExec(void) const { return _gradeExec; };
 
 /* **************************** Overload Operator *************************** */
-std::ostream& operator<<(std::ostream& os, const Form &f)
+std::ostream& operator<<(std::ostream& os, const AForm &f)
 {
-	os << "Form '" << f.getName() << (f.getSigned() ? "' is" : "' is not") 
+	os << "AForm '" << f.getName() << (f.getSigned() ? "' is" : "' is not") 
 		<< " signed. This form requires bureacrate level " << f.getGradeSign() 
 		<< " or higher to sign it and bureaucrat level " 
 		<< f.getGradeExec() << " or higher to execute it.";

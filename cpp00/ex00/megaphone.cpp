@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:53:47 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/08 10:25:07 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/24 14:11:00 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	call_megaphone(const std::string& s)
 		std::cout << static_cast<char>(std::toupper(s[i]));
 		i++;
 	}
+	std::cout << " ";
 }
 
 int main(int argc, char *argv[])
