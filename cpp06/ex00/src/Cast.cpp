@@ -30,7 +30,7 @@ void castChar(const std::string s)
 			std::cout << "Non displayable" << std::endl;
 	}
 	else
-		std::cout << skipSpaces(s)[0] << std::endl;
+		std::cout << s << std::endl;
 };
 
 void castInt(const std::string s)
@@ -38,9 +38,15 @@ void castInt(const std::string s)
 	int i;
 
 	std::cout << "int: ";
-	if (isInf(s) || isInff(s))
+	if (isInf(s))
 	{
-		std::cout << "inf" << std::endl;
+		std::cout << s << std::endl;
+		return ;
+	}
+	if (isInff(s))
+	{
+		std:: string inf = s;
+		std::cout << inf.erase(inf.size() - 1) << std::endl;
 		return ;
 	}
 	if (isNan(s) || isNanf(s))
@@ -49,7 +55,7 @@ void castInt(const std::string s)
 		return ;
 	}
 	if (isChar(s))
-		i = (int)skipSpaces(s)[0];
+		i = (int)s[0];
 	else
 		i = atoi(s.c_str());
 	std::cout << i << std::endl;
@@ -60,9 +66,14 @@ void castFloat(const std::string s)
 	float f;
 
 	std::cout << "float: ";
+	if (isInf(s))
+	{
+		std::cout << s << "f" << std::endl;
+		return ;
+	}
 	if (isInf(s) || isInff(s))
 	{
-		std::cout << "inff" << std::endl;
+		std::cout << s << std::endl;
 		return ;
 	}
 	if (isNan(s) || isNanf(s))
@@ -71,7 +82,7 @@ void castFloat(const std::string s)
 		return ;
 	}
 	if (isChar(s))
-		f = (float)skipSpaces(s)[0];
+		f = (float)s[0];
 	else
 		f = atof(s.c_str());
 	std::cout << std::fixed << std::setprecision(1) << f << "f" << std::endl;
@@ -82,9 +93,15 @@ void castDouble(const std::string s)
 	double d;
 
 	std::cout << "double: ";
-	if (isInf(s) || isInff(s))
+	if (isInf(s))
 	{
-		std::cout << "inf" << std::endl;
+		std::cout << s << std::endl;
+		return ;
+	}
+	if (isInff(s))
+	{
+		std:: string inf = s;
+		std::cout << inf.erase(inf.size() - 1) << std::endl;
 		return ;
 	}
 	if (isNan(s) || isNanf(s))
@@ -93,7 +110,7 @@ void castDouble(const std::string s)
 		return ;
 	}
 	if (isChar(s))
-		d = (double)skipSpaces(s)[0];
+		d = (double)s[0];
 	else
 		d = atof(s.c_str());
 	std::cout << std::fixed << std::setprecision(1) << d << std::endl;

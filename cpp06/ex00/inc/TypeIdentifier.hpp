@@ -19,8 +19,6 @@
 # include <string>
 # include <algorithm>
 
-std::string skipSpaces(const std::string &s);
-
 bool		isChar(const std::string input);
 
 bool		isInt(const std::string input);
