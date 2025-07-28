@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:18:21 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/28 17:14:25 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/07/28 17:29:35 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Array
 {
 	private:
 		unsigned int	_len;
-		T				*_array;
+		T	*_array;
 	
 	public:
 		/* ***** Constructors and Destructor **** */
