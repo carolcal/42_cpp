@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 16:53:49 by cayamash          #+#    #+#              #
-#    Updated: 2025/07/28 17:16:42 by cayamash         ###   ########.fr        #
+#    Updated: 2025/07/29 21:15:03 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #================== NAME ==================#
-NAME = Array
+NAME = easyfind
 
 #=========== COMPILERS AND FLAGS ===========#
 CC = c++
