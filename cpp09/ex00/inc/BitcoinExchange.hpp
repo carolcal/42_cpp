@@ -13,35 +13,46 @@
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <iostream>
-#include <string>
-#include <vector>
+# include <iostream>
+# include <fstream>
+# include <sstream>
+# include <string>
+# include <vector>
 
 class BitcoinExchange
 {
-    private:
-        std::ifstream _database;
-        std::ifstream _query;
+	private:
+		std::ifstream _database;
+		std::ifstream _query;
 
-        /* ************ Constructors ************ */
-        BitcounExchange(void);
-        BitcoinExchange(const BitcoinExchange &other);
+		/* ************ Constructors ************ */
+		BitcoinExchange(void);
+		BitcoinExchange(const BitcoinExchange &other);
 
-        /* ********** Member Functions ********* */
-        void getContent(std::string, std::vector<int> &date, int &value)
+		/* ************* Operators ************* */
+		BitcoinExchange& operator=(const BitcoinExchange &other);
 
-        void validateDate(std::vector<int> date);
-        void validateValue(int value);
-    public:
-        /* ***** Constructors and Destructor **** */
-        BitcounExchange(std::string database, std::string query);
-        ~BitcoinExchange(void);
+		/* ********** Member Functions ********* */
+		void	printContent(std::vector<int> &date, int &value, int &price);
 
-        /* ************* Operators ************* */
-        BitcointExchange& operator=(const BitcointExchange &other);
+		void	getContent(std::string content, std::vector<int> &date, int &value);
+		void	getPrice(std::vector<int> &date, int &value, int &price);
 
-        /* ********** Member Functions ********* */
-        void printContent(void);
-}
+		void	validateDate(std::vector<int> date);
+		void	validateValue(int value);
+
+		void	open_file(std::ifstream &file, std::string filename);
+		bool	isLeap(int y);
+		int		mounthType(int m);
+		int		castInt(std::string s);
+
+	public:
+		/* ***** Constructors and Destructor **** */
+		BitcoinExchange(std::string database, std::string query);
+		~BitcoinExchange(void);
+
+		/* ********** Member Functions ********* */
+		void	printConversion(void);
+};
 
 #endif

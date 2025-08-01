@@ -13,52 +13,61 @@
 #include "BitcoinExchange.hpp"
 
 /* *********************** Constructors and Destructor ********************** */
-BitcoinExchange::BitcoinExchange(void) : database(NULL), query(NULL) {};
+BitcoinExchange::BitcoinExchange(void) : _database(NULL), _query(NULL) {};
 
-BitcoinExchange::BitcoinExchange(std::string database, std::string query) : 
+BitcoinExchange::BitcoinExchange(std::string database, std::string query)
 {
 	open_file(_database, database);
 	open_file(_query, query);
 };
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {this = &other};
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { *this = other; };
 
-BitcoiExchange::~BitcoinExchange(void) {};
+BitcoinExchange::~BitcoinExchange(void) {};
 
 /* *************************** Assignment Operator ************************** */
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
 {
-	if (this != other)
-		this = &other;
+	if (this != &other)
+		*this = other;
 	return *this;
 }
 
 /* ***************************** Member Functions *************************** */
-void printConversion(void)
+void BitcoinExchange::printConversion(void)
 {
 	std::string content;
-	std::vector<std::int> date;
+	std::vector<int> date;
 	int value;
-	int price
+	int price;
 
 	while(getline(_query, content))
 	{
 		getContent(content, date, value);
 		validateDate(date);
 		validateValue(value);
-		getPrice(price);
+		getPrice(date, value, price);
 		printContent(date, value, price);
 
 		date.clear();
-		value.clear();
+		value = NULL;
 	}
 }
 
-void getContent(std::string, std::vector<int> &date, int &value)
+void BitcoinExchange::printContent(std::vector<int> &date, int &value, int &price)
+{
+	int y = date[0];
+	int m = date[1];
+	int d = date[2];
+
+	std::cout << y << "-" << m << "-" << d << " => " << value << " = " << price;
+}
+
+void BitcoinExchange::getContent(std::string content, std::vector<int> &date, int &value)
 {
 	std::string datePart;
 	std::string valuePart;
-	std::istringstream iss(line);
+	std::istringstream iss(content);
 
 	std::getline(iss, datePart, '|');
 	std::getline(iss, valuePart);
@@ -75,10 +84,29 @@ void getContent(std::string, std::vector<int> &date, int &value)
 		date.push_back(castInt(token));
 }
 
-/* **************************** Validate Functions ************************** */
-void validateDate(std::vector<int> date)
+void BitcoinExchange::getPrice(std::vector<int> &date, int &value, int &price)
 {
-	if (date.size != 3)
+	std::string dt_content;
+	std::vector<int> dt_date;
+	int dt_value;
+	while(getline(_database, dt_content))
+	{
+		getContent(dt_content, dt_date, dt_value);
+		if (dt_date[0] < date[0])
+			price = value * dt_value;
+		else if (dt_date[0] == date[0] && dt_date[1] < date[1])
+			price = value * dt_value;
+		else if (dt_date[0] == date[0] && dt_date[1] == date[1]  && dt_date[2] <= date[2])
+			price = value * dt_value;
+		else
+			break ;
+	}
+}
+
+/* **************************** Validate Functions ************************** */
+void BitcoinExchange::validateDate(std::vector<int> date)
+{
+	if (date.size() != 3)
 		throw std::out_of_range("Bad Input: Invalid date.");
 
 	int y = date[0];
@@ -99,7 +127,7 @@ void validateDate(std::vector<int> date)
 		throw std::out_of_range("Bad Input: Invalid date.");
 };
 
-void validateValue(int value)
+void BitcoinExchange::validateValue(int value)
 {
 	if (value < 0)
 		throw std::out_of_range("Not a positive number.");
@@ -108,7 +136,7 @@ void validateValue(int value)
 };
 
 /* ***************************** Helper Functions *************************** */
-void open_file(std::ifstream &file, std::string filename)
+void BitcoinExchange::open_file(std::ifstream &file, std::string filename)
 {
 	file.open(filename.c_str());
 	if (!file)
@@ -117,12 +145,12 @@ void open_file(std::ifstream &file, std::string filename)
 		throw std::runtime_error("Error: File " + filename + " is empty.");
 };
 
-bool isLeap(int y)
+bool BitcoinExchange::isLeap(int y)
 {
 	return ( y % 400 == 0 || ( y % 100 != 0 && y % 4 == 0 ));
 };
 
-int mounthType(int m)
+int BitcoinExchange::mounthType(int m)
 {
 	if (m == 2)
 		return 2;
@@ -131,7 +159,7 @@ int mounthType(int m)
 	return 0;
 };
 
-int castInt(std::string s)
+int BitcoinExchange::castInt(std::string s)
 {
 	int i;
 	std::istringstream	iss(s);

@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 13:21:53 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/30 14:55:36 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/08/01 10:01:23 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,8 @@ int		Span::longestSpan(void)
 
 	std::vector<int> sorted = _numbers;
 	std::sort(_numbers.begin(), _numbers.end());
-	
-	int	maxRange = _numbers[1] - _numbers[0];
-	if (_numbers.size() > 2)
-	{
-		for (unsigned int i = 2; i < _numbers.size(); i++)
-		{
-			int currRange = _numbers[i] - _numbers[i - 1];
-			if (currRange > maxRange)
-				maxRange = currRange;
-		}
-	}
+	int size = _numbers.size();
+	int	maxRange = _numbers[size - 1] - _numbers[0];
 	return maxRange;
 }
 
