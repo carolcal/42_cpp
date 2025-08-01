@@ -34,7 +34,6 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
 }
 
 /* ***************************** Member Functions *************************** */
-
 void printConversion(void)
 {
 	std::string content;
@@ -77,7 +76,6 @@ void getContent(std::string, std::vector<int> &date, int &value)
 }
 
 /* **************************** Validate Functions ************************** */
-
 void validateDate(std::vector<int> date)
 {
 	if (date.size != 3)
@@ -110,7 +108,6 @@ void validateValue(int value)
 };
 
 /* ***************************** Helper Functions *************************** */
-
 void open_file(std::ifstream &file, std::string filename)
 {
 	file.open(filename.c_str());
