@@ -16,6 +16,7 @@
 # include <iostream>
 # include <fstream>
 # include <sstream>
+# include <cstdlib>
 # include <string>
 # include <vector>
 
@@ -33,18 +34,20 @@ class BitcoinExchange
 		BitcoinExchange& operator=(const BitcoinExchange &other);
 
 		/* ********** Member Functions ********* */
-		void	printContent(std::vector<int> &date, int &value, int &price);
+		void	printContent(std::vector<int> &date, float &value, float &price);
 
-		void	getContent(std::string content, std::vector<int> &date, int &value);
-		void	getPrice(std::vector<int> &date, int &value, int &price);
+		std::string	getContent(std::string content, std::vector<int> &date, float &value, std::string type);
+		void	getPrice(std::vector<int> &date, float &value, float &price);
 
-		void	validateDate(std::vector<int> date);
-		void	validateValue(int value);
+		void	validateDate(std::vector<int> date, std::string s_date);
+		void	validateValue(float value);
 
 		void	open_file(std::ifstream &file, std::string filename);
 		bool	isLeap(int y);
 		int		mounthType(int m);
-		int		castInt(std::string s);
+		int		castInt(std::string s, std::string type);
+		float	castFloat(std::string s, std::string type);
+		std::string trim(const std::string &str);
 
 	public:
 		/* ***** Constructors and Destructor **** */
