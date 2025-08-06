@@ -121,9 +121,7 @@ void BitcoinExchange::getContent(std::string content, Date &date, float &value, 
 	valuePart = trim(valuePart);
 
 	getDate(date, datePart);
-
 	getValue(value, valuePart, type);
-
 };
 
 void BitcoinExchange::getDate(Date &date, std::string datePart)
@@ -161,7 +159,7 @@ void BitcoinExchange::getPrice(Date &date, float &value, float &price)
 {
 	std::map<Date, float>::iterator it = _database.upper_bound(date);
 	if (it == _database.begin())
-		throw std::runtime_error("No earlier record found for date => " + dateToString(date));
+		throw std::runtime_error("No record found for date => " + dateToString(date));
 	--it;
 	price = it->second * value;
 };

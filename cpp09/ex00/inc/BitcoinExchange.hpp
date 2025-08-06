@@ -55,8 +55,8 @@ struct Date
 class BitcoinExchange
 {
 	private:
-		std::ifstream _databaseFile;
-		std::map<Date, float> _database;
+		std::ifstream			_databaseFile;
+		std::map<Date, float>	_database;
 
 		/* ************ Constructors ************ */
 		BitcoinExchange(void);
