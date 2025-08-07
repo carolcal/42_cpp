@@ -21,15 +21,15 @@ BitcoinExchange::BitcoinExchange(std::string database)
 	loadDatabase(_databaseFile, _database);
 };
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { *this = other; };
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { _database = other._database; };
 
-BitcoinExchange::~BitcoinExchange(void) {};
+BitcoinExchange::~BitcoinExchange(void) { _databaseFile.close(); };
 
 /* *************************** Assignment Operator ************************** */
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
 {
 	if (this != &other)
-		*this = other;
+		_database = other._database;
 	return *this;
 };
 
@@ -96,6 +96,7 @@ void BitcoinExchange::printConversion(std::string input)
 		date.clear();
 		line_index++;
 	}
+	_inputFile.close();
 };
 
 void BitcoinExchange::printContent(Date &date, float &value, float &price)

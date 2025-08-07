@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/07 16:53:49 by cayamash          #+#    #+#              #
-#    Updated: 2025/07/31 12:00:58 by marvin           ###   ########.fr        #
+#    Updated: 2025/08/07 11:06:00 by cayamash         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #================== NAME ==================#
-NAME = btc
+NAME = RPN
 
 #=========== COMPILERS AND FLAGS ===========#
 CC = c++
@@ -21,7 +21,7 @@ FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 INCLUDES = -I inc
 SRC_DIR = src
 OBJ_DIR = obj
-SRC_FILES = main.cpp BitcoinExchange.cpp
+SRC_FILES = main.cpp RPN.cpp
 SRC  =$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.cpp=.o))
 

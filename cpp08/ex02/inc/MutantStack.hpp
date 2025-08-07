@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 15:15:49 by cayamash          #+#    #+#             */
-/*   Updated: 2025/07/30 18:42:32 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:28:48 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stack>
 # include <deque>
-//template <class T, class Container = deque<T> > class stack;
+
 template <typename T, typename Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
 {

@@ -18,7 +18,6 @@
 # include <sstream>
 # include <cstdlib>
 # include <string>
-# include <vector>
 # include <map>
 
 struct Date
