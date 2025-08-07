@@ -4,7 +4,7 @@ This repository contains my solutions to the C++ exercise lists from the 42 Scho
 
 ## Exercises
 
-The goal of these exercises is to develop a strong foundation in C++ by solving challenges, each list os exercised brought a new concept for us to study and develop ourselves:
+The goal of these exercises is to develop a strong foundation in C++ by solving challenges, each list of exercises brought a new concept for us to study and develop ourselves:
 ### CPP00 : ✅ 100/100
 - **Concepts:** Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff
 - **EX00:** First contact with c++ language, learn how to print on the output, use casting and some functions from the stardart library.
