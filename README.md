@@ -2,7 +2,7 @@
 
 This repository contains my solutions to the C++ exercise lists from the 42 School curriculum. Each module focuses on a specific aspect of the C++ language, following the official 42 subject descriptions and project structure.
 
-## 🧠 About
+## Exercises
 
 The goal of these exercises is to develop a strong foundation in C++ by solving challenges, each list os exercised brought a new concept for us to study and develop ourselves:
 ### CPP00 : ✅ 100/100
