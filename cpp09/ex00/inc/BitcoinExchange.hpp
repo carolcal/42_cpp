@@ -65,29 +65,14 @@ class BitcoinExchange
 		BitcoinExchange& operator=(const BitcoinExchange &other);
 
 		/* ********** Member Functions ********** */
-		void		open_file(std::ifstream &file, std::string filename);
-		void		loadDatabase(std::ifstream &file, std::map<Date, float> &container);
-
-		/* ********** Print Functions *********** */
-		void		printContent(Date &date, float &value, float &price);
-
-		/* *********** Get Functions ************ */
+		void		loadDatabase(void);
 		void		getContent(std::string content, Date &date, float &value, std::string type);
 		void		getDate(Date &date, std::string datePart);
 		void		getValue(float &value, std::string valuePart, std::string type);
 		void		getPrice(Date &date, float &value, float &price);
-		int			getMonthDays(int m, int y);
-
-		/* ********* Validate Functions ********* */
 		void		validateDate(Date &date);
 		void		validateValue(float value);
-
-		/* ********** Helper Functions ********** */
-		bool		isLeap(int y);
-		int			castInt(std::string s, std::string type);
-		float		castFloat(std::string s, std::string type);
-		std::string	trim(const std::string &str);
-		std::string	dateToString(Date &date) const;
+		
 
 	public:
 		/* ***** Constructors and Destructor **** */
@@ -97,5 +82,15 @@ class BitcoinExchange
 		/* ********** Member Functions ********* */
 		void		printConversion(std::string input);
 };
+
+/* ********** Helper Functions ********** */
+void		open_file(std::ifstream &file, std::string filename);
+void		printContent(Date &date, float &value, float &price);
+int			getMonthDays(int m, int y);
+bool		isLeap(int y);
+int			castInt(std::string s, std::string type);
+float		castFloat(std::string s, std::string type);
+std::string	trim(const std::string &str);
+std::string	dateToString(Date &date);
 
 #endif

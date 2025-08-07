@@ -6,7 +6,7 @@
 /*   By: cayamash <cayamash@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 12:02:13 by cayamash          #+#    #+#             */
-/*   Updated: 2025/08/07 17:53:25 by cayamash         ###   ########.fr       */
+/*   Updated: 2025/08/07 18:20:35 by cayamash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <iostream>
 # include <sstream>
 # include <ctime>
-#include <iomanip>
+# include <iomanip>
 
 # define RESET	"\033[0m"
 # define PINK	"\033[35m"
@@ -44,7 +44,6 @@ class PmergeMe
 		
 };
 
-
 template <typename Container>
 void	insertBynarySearch(Container &larger, Container &smaller)
 {
@@ -62,7 +61,7 @@ void	mergeInsertionSort(Container &container)
 	size_t		n = container.size();
 	Container   larger;
 	Container   smaller;
-	//std::cout << "mergeinsertion\n";
+
 	if (n <= 1)
 		return ;
 	while (i + 1 < n)

@@ -18,7 +18,7 @@ BitcoinExchange::BitcoinExchange(void) : _databaseFile(), _database() {};
 BitcoinExchange::BitcoinExchange(std::string database)
 {
 	open_file(_databaseFile, database);
-	loadDatabase(_databaseFile, _database);
+	loadDatabase();
 };
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { _database = other._database; };
@@ -34,37 +34,30 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &other)
 };
 
 /* ***************************** Member Functions *************************** */
-void BitcoinExchange::open_file(std::ifstream &file, std::string filename)
-{
-	file.open(filename.c_str());
-	if (!file)
-		throw std::runtime_error("Error: Opening file " + filename);
-	if (file.peek() == EOF)
-		throw std::runtime_error("Error: File '" + filename + "' is empty.");
-};
 
-void BitcoinExchange::loadDatabase(std::ifstream &file, std::map<Date, float> &container)
+
+void BitcoinExchange::loadDatabase(void)
 {
 	std::string	content;
 	Date		date;
 	float		value;
 	int			line_index = 0;
 
-	while(getline(file, content))
+	while(getline(_databaseFile, content))
 	{
 		if (line_index == 0 && content != "date,exchange_rate")
 			throw std::runtime_error("Invalid 'data.csv' file.");
 		if (line_index > 0)
 		{
 			getContent(content, date, value, "database");
-			container[date] = value;
+			_database[date] = value;
 			date.clear();
 		}
 		line_index++;
 	}
 };
 
-/* ***************************** Print Functions **************************** */
+/* **************************** Member Functions **************************** */
 
 void BitcoinExchange::printConversion(std::string input)
 {
@@ -97,11 +90,6 @@ void BitcoinExchange::printConversion(std::string input)
 		line_index++;
 	}
 	_inputFile.close();
-};
-
-void BitcoinExchange::printContent(Date &date, float &value, float &price)
-{
-	std::cout << dateToString(date) << " => " << value << " = " << price << std::endl;
 };
 
 /* ****************************** Get Functions ***************************** */
@@ -165,15 +153,6 @@ void BitcoinExchange::getPrice(Date &date, float &value, float &price)
 	price = it->second * value;
 };
 
-int BitcoinExchange::getMonthDays(int m, int y)
-{
-	if (m == 2)
-		return isLeap(y) ? 29 : 28;
-	if ((m < 8 && m % 2 == 1) || (m > 7 && m % 2 == 0))
-		return 31;
-	return 30;
-};
-
 /* **************************** Validate Functions ************************** */
 void BitcoinExchange::validateDate(Date &date)
 {
@@ -190,6 +169,7 @@ void BitcoinExchange::validateDate(Date &date)
 	if (date < minDate || date > maxDate)
 		throw std::range_error("Bad Input: Date out of range => " + dateToString(date));
 }
+
 void BitcoinExchange::validateValue(float value)
 {
 	if (value < 0)
@@ -200,12 +180,35 @@ void BitcoinExchange::validateValue(float value)
 
 /* ***************************** Helper Functions *************************** */
 
-bool BitcoinExchange::isLeap(int y)
+void open_file(std::ifstream &file, std::string filename)
+{
+	file.open(filename.c_str());
+	if (!file)
+		throw std::runtime_error("Error: Opening file " + filename);
+	if (file.peek() == EOF)
+		throw std::runtime_error("Error: File '" + filename + "' is empty.");
+};
+
+void printContent(Date &date, float &value, float &price)
+{
+	std::cout << dateToString(date) << " => " << value << " = " << price << std::endl;
+};
+
+int getMonthDays(int m, int y)
+{
+	if (m == 2)
+		return isLeap(y) ? 29 : 28;
+	if ((m < 8 && m % 2 == 1) || (m > 7 && m % 2 == 0))
+		return 31;
+	return 30;
+};
+
+bool isLeap(int y)
 {
 	return ( y % 400 == 0 || ( y % 100 != 0 && y % 4 == 0 ));
 };
 
-int BitcoinExchange::castInt(std::string s, std::string datePart)
+int castInt(std::string s, std::string datePart)
 {
 	int i;
 	s = trim(s);
@@ -218,7 +221,7 @@ int BitcoinExchange::castInt(std::string s, std::string datePart)
 	return i;
 };
 
-float BitcoinExchange::castFloat(std::string s, std::string type)
+float castFloat(std::string s, std::string type)
 {
 	int len = 0;
 	float f;
@@ -237,7 +240,7 @@ float BitcoinExchange::castFloat(std::string s, std::string type)
 	return f;
 };
 
-std::string BitcoinExchange::trim(const std::string &str)
+std::string trim(const std::string &str)
 {
 	size_t start = 0;
 	while (start < str.size() && isspace(str[start]))
@@ -248,7 +251,7 @@ std::string BitcoinExchange::trim(const std::string &str)
 	return str.substr(start, end - start);
 };
 
-std::string BitcoinExchange::dateToString(Date &date) const
+std::string dateToString(Date &date)
 {
 	std::ostringstream oss;
 	oss << date.year << "-";
