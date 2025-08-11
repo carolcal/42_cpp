@@ -19,20 +19,20 @@ The goal of these exercises is to build a solid foundation in C++ by solving cha
 - **03:** Using classes inside other classes.
 - **04:** Implementing a command-line `sed` replacement.
 - **05:** Using a pointer-to-member-function array to select functions dynamically.
-- **06:** Similar to EX05, but using `switch` statements.
+- **06:** Similar to ex05, but using `switch` statements.
 
 ### CPP02 : ✅ **100**/<sub>100</sub>
 - **Concepts:** Ad-hoc polymorphism, operator overloading and the Orthodox Canonical class form
-- **00:** Implementing a class in Orthodox Canonical Form.
+- **00:** First contact with the Orthodox Canonical Form.
 - **01:** Creating a fixed-point number class.
-- **02:** Overloading operators: comparison (`>`, `<`, `>=`, `<=`, `==`, `!=`), arithmetic (`+`, `-`, `*`, `/`), increment/decrement (`++`, `--`), and `min`/`max` functions.
+- **02:** Overloading operators to the class: comparison (`>`, `<`, `>=`, `<=`, `==`, `!=`), arithmetic (`+`, `-`, `*`, `/`), increment/decrement (`++`, `--`), and `min`/`max` functions.
 - **03:** BSP function to determine if a point lies inside a triangle.
 
 ### CPP03 : ✅ **100**/<sub>100</sub>
 - **Concepts:** Inheritance
-- **00:** `ClapTrap` class with its own properties, variables and functions.
+- **00:** `ClapTrap` class with its properties, variables, and functions.
 - **01:** `ScavTrap` class inherits from `ClapTrap` and implements its own functions.
-- **02:** `FragTrap` class inherits from `ClapTrap` and also implementing its own functions.
+- **02:** `FragTrap` class inherits from `ClapTrap` and also implements its own functions.
 - **03:** `DiamondTrap` class demonstrates diamond inheritance by inheriting from both `ScavTrap` and `FragTrap`.
 
 ### CPP04 : ✅ **100**/<sub>100</sub>
@@ -40,7 +40,7 @@ The goal of these exercises is to build a solid foundation in C++ by solving cha
 - **EX00:** Demonstrate polymorphism differences between derived classes with and without virtual functions.
 - **EX01:** Practice deep copying, dynamic allocation, and proper destructor behavior in polymorphic hierarchies.
 - **EX02:** Abstract class
-- **EX03:** Implement interface using the concepts lerned in the previus exercises
+- **EX03:** Implement interface using the concepts learned in the previous exercises
 
 ### CPP05 : ✅ **100**/<sub>100</sub>
 - **Concepts:** Repetition and Exceptions
@@ -57,14 +57,14 @@ The goal of these exercises is to build a solid foundation in C++ by solving cha
 
 ### CPP07 : ✅ **100**/<sub>100</sub>
 - **Concepts:** C++ templates
-- **00:** Implement `swap`, `min` and `max` functions.
+- **00:** Implement `swap`, `min`, and `max` functions.
 - **01:** Create a function template that iterates through any array type and applies a function to each element.
 - **02:** Implement a generic, bounds-checked, dynamically allocated array class with proper copy semantics and exception safety.
 
 ### CPP08 : ✅ **100**/<sub>100</sub>
 - **Concepts:** Templated containers, iterators, algorithms
 - **00:** Function template to search for an integer in any integer container.
-- **01:** Fixed-capacity integer container class that computing shortest and longest spans between stored numbers.
+- **01:** Fixed-capacity integer container class that computes shortest and longest spans between stored numbers.
 - **02:** Create a MutantStack class inheriting from std::stack and adds iterator functions.
 
 ### CPP09 : ✅ **100**/<sub>100</sub>
